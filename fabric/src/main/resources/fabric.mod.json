@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "ssis",
+  "version": "${version}",
+  "name": "SimpleSuperItemStack",
+  "description": "",
+  "authors": [
+    "KSmc_brigade"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/yiyuyan/SimpleSuperItemStack"
+  },
+  "license": "CC0-1.0",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "cn.ksmcbrigade.ssis.fabric.SSISModFabric"
+    ]
+  },
+  "mixins": [
+    "ssis.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.14",
+    "minecraft": "~1.20.1",
+    "java": ">=17",
+    "architectury": ">=9.2.14"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

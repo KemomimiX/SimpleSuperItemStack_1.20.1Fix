@@ -1,0 +1,20 @@
+{
+  "required": true,
+  "package": "cn.ksmcbrigade.ssis.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.8",
+  "client": [
+  ],
+  "mixins": [
+    "IInventoryMixin",
+    "ItemProMixin",
+    "ItemStackEntityMixin",
+    "ItemStackMixin",
+    "ServerGameListenerMixin",
+    "fix.BucketMixin",
+    "fix.MilkBucketMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
