@@ -1,0 +1,21 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "cn.ksmcbrigade.ssis.mixin",
+  "refmap": "${mod_id}.refmap.json",
+  "compatibilityLevel": "JAVA_18",
+  "mixins": [
+    "ContainerMixin",
+    "ItemProMixin",
+    "ItemStackMixin",
+    "fix.BucketMixin",
+    "fix.MilkBucketMixin"
+  ],
+  "client": [
+    "MinecraftMixin"
+  ],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

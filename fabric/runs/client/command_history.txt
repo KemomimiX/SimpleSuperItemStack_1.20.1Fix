@@ -1,0 +1,7 @@
+/give @s minecraft:water_bucket 109
+/give @s minecraft:water_bucket 10
+/give @s minecraft:bucket 256
+/give @s minecraft:milk_bucket
+/give @s minecraft:milk_bucket 3
+/time set day
+/difficulty peaceful
