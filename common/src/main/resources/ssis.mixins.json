@@ -13,6 +13,7 @@
     "ServerGameListenerMixin",
     "fix.BucketMixin",
     "fix.MilkBucketMixin"
+    "FriendlyByteBufMixin"
   ],
   "injectors": {
     "defaultRequire": 1
