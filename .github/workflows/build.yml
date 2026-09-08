@@ -6,8 +6,6 @@ on:
   push:
     branches:
       - 1.20.1
-      - master
-      - main
   workflow_dispatch:
 
 jobs:
