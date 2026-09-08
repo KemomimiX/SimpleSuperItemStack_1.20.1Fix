@@ -24,16 +24,13 @@ jobs:
       - name: Grant execute permission
         run: chmod +x gradlew
 
-      - name: Build Forge Jar
-        run: ./gradlew :forge:jar --no-daemon
+      - name: Build Forge Mod
+        run: ./gradlew :forge:remapJar --no-daemon
 
       - name: Find generated JARs
         run: |
-          echo "=== Generated JARs ==="
-          find . -type f -name "*.jar" -print
-
-          echo "=== Build directories ==="
-          find . -type d -name build -print
+          echo "=== forge/build ==="
+          find forge/build -type f -name "*.jar" -print
 
       - name: Upload Forge JAR
         uses: actions/upload-artifact@v4
