@@ -35,10 +35,7 @@ jobs:
 
       - name: Show built files
         run: |
-          echo "=== Forge libs ==="
           ls -lh forge/build/libs || true
-          echo "=== Common libs ==="
-          ls -lh common/build/libs || true
 
       - name: Upload Forge Jar
         uses: actions/upload-artifact@v4
