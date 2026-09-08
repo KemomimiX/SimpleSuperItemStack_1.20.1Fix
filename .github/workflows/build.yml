@@ -27,8 +27,11 @@ jobs:
         with:
           gradle-version: "8.8"
 
+      - name: Grant execute permission
+        run: chmod +x gradlew
+
       - name: Build Forge
-        run: ./gradlew :forge:build --no-daemon
+        run: ./gradlew :forge:jar --no-daemon
 
       - name: Show built files
         run: |
