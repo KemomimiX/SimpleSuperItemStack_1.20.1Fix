@@ -20,9 +20,6 @@ import cn.ksmcbrigade.ssis.Config;
 import java.util.Optional;
 import java.io.IOException;
 
-import net.minecraft.nbt.CompoundTag;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
 @Mixin(ItemStack.class)
 public abstract class ItemStackMixin {
 
@@ -50,30 +47,6 @@ public abstract class ItemStackMixin {
         }
     }
 
-    @Inject(method = "getShareTag", at = @At("RETURN"), cancellable = true)
-    private void ssis$shareTag(CallbackInfoReturnable<CompoundTag> cir) {
-    ItemStack self = (ItemStack)(Object)this;
-
-    CompoundTag tag = cir.getReturnValue();
-
-        if (tag == null) {
-            tag = new CompoundTag();
-    }
-
-    if (self.getCount() > 127) {
-        tag.putInt("countMod", self.getCount());
-    }
-
-    cir.setReturnValue(tag);
-}
-
-    @Inject(method = "setTag", at = @At("TAIL"))
-    private void ssis$restoreCount(CompoundTag tag, CallbackInfo ci) {
-        if (tag != null && tag.contains("countMod")) {
-            this.count = tag.getInt("countMod");
-    }
-}
-    
     @Inject(method = "<clinit>",at = @At("TAIL"))
     private static void clinit(CallbackInfo ci){
         CODEC = RecordCodecBuilder.create((instance) -> {

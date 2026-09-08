@@ -10,8 +10,9 @@
     "ItemStackEntityMixin",
     "ItemStackMixin",
     "ServerGameListenerMixin",
+    "FriendlyByteBufMixin",
     "fix.BucketMixin",
-    "fix.MilkBucketMixin",
+    "fix.MilkBucketMixin"
   ],
   "injectors": {
     "defaultRequire": 1
