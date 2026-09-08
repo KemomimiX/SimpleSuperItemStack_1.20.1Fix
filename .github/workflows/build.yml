@@ -1,11 +1,9 @@
-# 1
-
 name: Build SSIS 1.20.1
 
 on:
   push:
     branches:
-      - 1.20.1-arch
+      - 1.20.1
   workflow_dispatch:
 
 jobs:
@@ -15,6 +13,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: 1.20.1
 
       - name: Setup Java 17
         uses: actions/setup-java@v4
@@ -22,23 +22,38 @@ jobs:
           distribution: temurin
           java-version: "17"
 
-      - name: Setup Gradle 8.8
+      - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-version: "8.8"
 
       - name: Grant execute permission
         run: chmod +x gradlew
 
-      - name: Build Forge
+      - name: Build Forge Jar
         run: ./gradlew :forge:jar --no-daemon
 
-      - name: Show built files
+      - name: Find generated JARs
         run: |
-          ls -lh forge/build/libs || true
+          echo "================================"
+          echo "Generated JAR files:"
+          echo "================================"
+          find . -type f -name "*.jar" -print
 
-      - name: Upload Forge Jar
+          echo ""
+          echo "================================"
+          echo "Forge build directory:"
+          echo "================================"
+          find forge/build -type f 2>/dev/null || true
+
+          echo ""
+          echo "================================"
+          echo "All build directories:"
+          echo "================================"
+          find . -type d -name build -print
+
+      - name: Upload Forge JAR
         uses: actions/upload-artifact@v4
         with:
           name: ssis-forge-1.20.1
-          path: forge/build/libs/*.jar
+          path: |
+            **/build/libs/*.jar
+          if-no-files-found: error
